@@ -1,0 +1,1 @@
+use special namd modified by me (Pablo) that generates dcde instead of dcd

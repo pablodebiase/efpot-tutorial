@@ -1,0 +1,26 @@
+#!/bin/bash
+#PBS -S /bin/bash
+#PBS -N kcl-nopme
+#PBS -l nodes=12:ppn=6,walltime=100:00:00,mem=32gb
+#PBS -j oe
+# ******************** end of job specification section **********
+
+# Running on bison
+##PBS_O_WORKDIR="/global/scratch/hongo/kcl/loweAndersen"
+cd $PBS_O_WORKDIR
+echo "Current working directory is `pwd`"
+
+MPIRUN="mpiexec"
+NAMD_DIR="./namd2"
+
+
+echo "Minimization start at: `date`"
+$MPIRUN $NAMD_DIR +isomalloc_sync min.conf > min.out
+echo "Equilibration start at: `date`"
+$MPIRUN $NAMD_DIR +isomalloc_sync eq.conf > eq.out
+echo "Production start at: `date`"
+$MPIRUN $NAMD_DIR +isomalloc_sync run.conf > run.out
+echo "Job finished at: `date`" 
+
+exit 0;
+

@@ -1,0 +1,35 @@
+hongo@pita:~/bromoc/test/conc/detmu/mix$ ../fit-it conc-mu.dat 5 2.6 y
+
+FIT-MU version 1.0 fit mu (chemical potential) vs concentration  and extrapolate mu for given concentration
+      created by Pablo M. De Biase (pablodebiase@gmail.com) since May 2012
+
+NOTE: Press ENTER to accept the default option in between []
+
+
+ Data filename: conc-mu.dat
+
+ Number of parameters: 5
+
+ a(1)=  -3.27942232843270176E-002
+ a(2)=  -0.84784865885922045     
+ a(3)=   0.95840031465559150     
+ a(4)=  -0.47149911162523495     
+ a(5)=   8.55373048857472895E-002
+ R=  0.99994921249453816     
+
+ a(1)=  -3.59424308392135572E-002
+ a(2)=  -0.84289848548178270     
+ a(3)=   0.93700796174198331     
+ a(4)=  -0.45162252384943713     
+ a(5)=   8.02012519106938271E-002
+ R=  0.99995887044780152     
+
+ Molar Concentration: 2.6
+
+ Write output (yes/no)?: yes
+
+ Output written to: conc-mu.out
+ Chemical Potential (MU) for CLA:  -0.49427563875612812     
+ Chemical Potential (MU) for POT:  -0.49996442930515650     
+
+

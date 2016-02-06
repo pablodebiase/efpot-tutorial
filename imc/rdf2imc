@@ -1,0 +1,29 @@
+#!/bin/bash
+part='CLA POT'
+char='-1.0_153 1.0_153'
+outf=${1:?"USAGE: $0 outputfilename"}
+nop=230
+md=23.0
+echo '2   '$nop'   0.0   '$md > $outf
+
+jj=0
+for j in $part; do
+  jj=$(($jj+1))
+  echo "$j   $(echo $char | awk '{print $'$jj'}' | sed 's/_/   /g')" >> $outf
+done
+
+jj=0
+for j in $part; do
+  jj=$(($jj+1))
+  kk=0
+  for k in $part; do
+    kk=$(($kk+1))
+    filename='rdf-'$j'-'$k'.dat'   #here the filename
+    if [ -f $filename ]; then 
+      for ((  i = 1 ;  i <= $nop;  i++  )); do
+        echo "$(sed -n $i'p' $filename)      $jj      $kk" >> $outf
+      done
+    fi
+  done
+done
+

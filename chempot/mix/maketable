@@ -1,0 +1,21 @@
+#!/bin/bash
+ini=$1
+fin=$2
+step=$3
+force="no"
+if [ "$ini" == "" ]; then ini=1; fi
+if [ "$fin" == "" ]; then fin=3000; fi
+if [ "$step" == "" ]; then step=1; fi
+rm -f table-conc-mu.dat
+for (( i=$ini ; i<=$fin ; i=i+$step )); do
+  echo -ne '\b\b\b\b\b\b'
+  echo -n $i
+  conc=$(./calcf $i % 1000)
+  ../fit-it conc-mu.dat 5 $conc > result
+  cla=$(grep CLA result | awk '{print $6}')
+  pot=$(grep POT result | awk '{print $6}')
+  echo $conc $cla $pot >> table-conc-mu.dat
+done
+echo
+echo Done
+rm -r result
